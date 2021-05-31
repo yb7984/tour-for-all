@@ -46,7 +46,8 @@ Here is the project. Everyone can find tournaments and see the clocks online. To
 
   - ### a. What does your database schema look like?
     - ![Database schema](dataschema.png)
-
+    - All tournament setting information will store as json in tournament.setting
+    - All tournament clock information will store as json in tournament.clock_status, for recoverage in case of the creator losing connection.
 
   - ### b. What kinds of issues might you run into with your API?
     - Text message may not works with free account of some APIs.
