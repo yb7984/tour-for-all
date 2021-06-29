@@ -102,9 +102,9 @@ router.get("/", ensureAdminLoggedIn, async function (req, res, next) {
 
 /** GET /[username] => { user }
  *
- * Returns { username, firstName, lastName, role }
+ * Returns User
  *
- * Authorization required: login
+ * Authorization required: Current User or Admin
  **/
 
 router.get("/:username", ensureCorrectUserOrAdmin, async function (req, res, next) {

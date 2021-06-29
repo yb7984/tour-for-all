@@ -21,6 +21,10 @@ function getDatabaseUri() {
 // WJB: Evaluate in 2021 if this should be increased to 13 for non-test use
 const BCRYPT_WORK_FACTOR = process.env.NODE_ENV === "test" ? 1 : 12;
 
+// Upload base folder 
+const UPLOAD_DIR = process.env.UPLOAD_DIR || "uploads";
+const UPLOAD_URL = process.env.UPLOAD_URL || "/uploads";
+
 console.log("tour_for_all Config:".green);
 console.log("SECRET_KEY:".yellow, SECRET_KEY);
 console.log("PORT:".yellow, PORT.toString());
@@ -33,4 +37,6 @@ module.exports = {
     PORT,
     BCRYPT_WORK_FACTOR,
     getDatabaseUri,
+    UPLOAD_DIR,
+    UPLOAD_URL
 };

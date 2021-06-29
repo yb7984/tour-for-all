@@ -12,8 +12,10 @@ const authRoutes = require("./routes/auth");
 const usersRoutes = require("./routes/users");
 const toursRoutes = require("./routes/tours");
 const tourPlayersRoutes = require("./routes/tourPlayers");
+const filesRoutes = require("./routes/files");
 
 const morgan = require("morgan");
+const fileUpload = require("express-fileupload");
 
 const app = express();
 
@@ -21,11 +23,15 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
+app.use(fileUpload());
+
+app.use("/uploads", express.static('uploads'));
 
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 app.use("/tours", tourPlayersRoutes);
 app.use("/tours", toursRoutes);
+app.use("/files" , filesRoutes);
 
 
 /** Handle 404 errors -- this matches everything */
